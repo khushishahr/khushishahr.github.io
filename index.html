@@ -17,7 +17,6 @@
       --blue: #3560ff;
       --line: rgba(122, 31, 41, 0.18);
       --card: rgba(255,255,255,0.12);
-      --card-strong: rgba(255,255,255,0.30);
       --shadow: 0 22px 60px rgba(72, 45, 29, 0.10);
       --radius-xl: 28px;
       --radius-lg: 22px;
@@ -101,7 +100,7 @@
       font-size: clamp(0.95rem, 1.4vw, 1rem);
       font-weight: 600;
       color: rgba(0,0,0,0.74);
-      transition: color 0.2s ease, opacity 0.2s ease;
+      transition: color 0.2s ease;
     }
 
     .nav-inner a:hover{
@@ -113,7 +112,7 @@
       min-height: 100svh;
       display:flex;
       align-items:flex-start;
-      justify-content:center;
+      justify-content:flex-start;
       padding-top: clamp(92px, 11vh, 150px);
       padding-bottom: 40px;
     }
@@ -121,7 +120,7 @@
     .hero-shell{
       position:relative;
       width: min(100%, 760px);
-      margin-inline:auto;
+      margin-inline: 0;
       padding: clamp(18px, 5vw, 54px) clamp(18px, 5.5vw, 64px) clamp(18px, 2.5vw, 24px);
     }
 
@@ -135,6 +134,7 @@
       padding: clamp(22px, 4.5vw, 40px);
       backdrop-filter: blur(4px);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
+      text-align: left;
     }
 
     .hero-shell:hover .hero-card{
@@ -143,9 +143,9 @@
     }
 
     .hero h1{
-      font-size: clamp(2.9rem, 8vw, 5rem);
+      font-size: 60px;
       line-height: 0.95;
-      letter-spacing: clamp(-2.5px, -0.25vw, -4px);
+      letter-spacing: -3px;
       font-weight: 300;
       color: rgba(0,0,0,0.62);
       margin-bottom: clamp(18px, 3vw, 24px);
@@ -159,7 +159,7 @@
     }
 
     .hero p{
-      font-size: clamp(1.08rem, 2.2vw, 1.8rem);
+      font-size: clamp(1.08rem, 2.2vw, 1.45rem);
       line-height: 1.45;
       color: rgba(0,0,0,0.62);
       margin-bottom: clamp(22px, 4vw, 42px);
@@ -175,10 +175,10 @@
     }
 
     .logo-pill{
-      font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+      font-size: clamp(0.95rem, 1.8vw, 1.05rem);
       font-weight: 600;
       color: rgba(0,0,0,0.26);
-      transition: color 0.25s ease, transform 0.25s ease, opacity 0.25s ease;
+      transition: color 0.25s ease, transform 0.25s ease;
       cursor: default;
       white-space: nowrap;
     }
@@ -198,7 +198,7 @@
       border: 1px solid var(--accent);
       color: var(--accent);
       background: transparent;
-      font-size: clamp(1rem, 1.8vw, 1.1rem);
+      font-size: clamp(1rem, 1.8vw, 1.06rem);
       font-weight: 600;
       transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
       touch-action: manipulation;
@@ -494,6 +494,10 @@
 
     /* RESPONSIVE TUNING */
     @media (max-width: 1024px){
+      .hero h1{
+        font-size: 60px;
+      }
+
       .project{
         grid-template-columns: 1fr;
       }
@@ -520,7 +524,7 @@
       }
 
       .hero-shell{
-        padding: 14px;
+        padding: 14px 0;
       }
 
       .hero-card{
@@ -528,11 +532,13 @@
       }
 
       .hero h1{
+        font-size: clamp(44px, 8vw, 52px);
         max-width:none;
       }
 
       .hero p{
         max-width:none;
+        font-size: 1.08rem;
       }
 
       .inner-box{
@@ -584,15 +590,16 @@
       }
 
       .hero h1{
-        font-size: clamp(2.5rem, 14vw, 3.4rem);
+        font-size: clamp(36px, 13vw, 44px);
+        letter-spacing: -2px;
       }
 
       .hero p{
-        font-size: 1.02rem;
+        font-size: 1rem;
       }
 
       .logo-pill{
-        font-size: 0.95rem;
+        font-size: 0.92rem;
       }
 
       .btn{
@@ -746,7 +753,7 @@
         <div class="footer-inner">
           <div>
             <h4>Contact</h4>
-            <p>khushishah@email.com</p>
+            <p>khushishah0311@gmail.com</p>
           </div>
 
           <div>

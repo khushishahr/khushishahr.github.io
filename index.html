@@ -1,259 +1,629 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQCBZGQD6G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-VQCBZGQD6G', {
+      send_page_view: false
+    });
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Khushi Shah| Portfolio</title>
+  <meta name="description" content="Khushi Shah — portfolio of selected work, projects, and experience." />
+  <meta name="author" content="Khushi Shah" />
+  <title>Khushi Shah – Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+
   <style>
-    :root {
-      --bg: #0f172a;
-      --card: #111827;
-      --text: #e5e7eb;
-      --muted: #94a3b8;
-      --accent: #60a5fa;
-      --accent-2: #34d399;
-      --border: rgba(255,255,255,0.08);
+    :root{
+      --bg: #f6efe6;
+      --bg-soft: #f3e9dd;
+      --text: #1f1f1f;
+      --muted: #6f685f;
+      --card: rgba(255,255,255,0.38);
+      --card-strong: rgba(255,255,255,0.64);
+      --line: rgba(102, 73, 57, 0.14);
+      --accent: #7a2f2a;
+      --accent-2: #233f8f;
+      --shadow: 0 24px 60px rgba(72, 45, 29, 0.10);
+      --radius: 28px;
+      --max: 1160px;
     }
 
     * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1e293b, var(--bg));
+      margin: 0;
+      font-family: "Outfit", system-ui, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.55), transparent 30%),
+        radial-gradient(circle at top right, rgba(255,255,255,0.35), transparent 25%),
+        linear-gradient(180deg, var(--bg), #f8f3ec 50%, #f7f1e7 100%);
       color: var(--text);
-      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      min-height: 100vh;
+      overflow-x: hidden;
     }
 
     .container {
-      width: min(1100px, calc(100% - 32px));
+      width: min(calc(100% - 32px), var(--max));
       margin: 0 auto;
-      padding: 32px 0 64px;
     }
 
-    nav {
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 20;
+      padding: 18px 0;
+      background: linear-gradient(to bottom, rgba(246,239,230,0.92), rgba(246,239,230,0));
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-inner {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
-      margin-bottom: 64px;
+      gap: 24px;
+      padding-right: 6px;
     }
 
-    nav .logo {
-      font-weight: 700;
-      letter-spacing: 0.5px;
+    .nav a {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: rgba(31,31,31,0.78);
+      transition: color 0.2s ease;
     }
-
-    nav a {
-      color: var(--muted);
-      text-decoration: none;
-      margin-left: 18px;
-    }
+    .nav a:hover { color: var(--text); }
 
     .hero {
-      display: grid;
-      gap: 28px;
-      align-items: center;
-      grid-template-columns: 1.2fr 0.8fr;
-      margin-bottom: 72px;
+      padding-top: 86px;
+      padding-bottom: 40px;
+    }
+
+    .hero-shell {
+      position: relative;
+      width: min(100%, 760px);
+      margin: 0 auto;
+      padding: 54px 64px 24px 64px;
+      border: 1px dashed rgba(122,47,42,0.18);
+      border-radius: 16px;
+    }
+
+    .hero-card {
+      position: relative;
+      z-index: 1;
+      border: 1px solid rgba(60, 83, 176, 0.35);
+      background: rgba(255,255,255,0.18);
+      box-shadow: var(--shadow);
+      border-radius: 10px;
+      padding: 40px;
+      min-height: 420px;
+    }
+
+    .hero-kicker {
+      font-family: "Fira Code", monospace;
+      font-size: 0.78rem;
+      color: rgba(122,47,42,0.9);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 6vw, 5rem);
-      line-height: 1.05;
-      margin: 0 0 16px;
+      margin: 0 0 18px;
+      font-size: clamp(3rem, 6vw, 5.2rem);
+      line-height: 0.98;
+      font-weight: 500;
+      max-width: 11ch;
+      color: rgba(31,31,31,0.72);
+    }
+
+    .hero h1 strong {
+      display: block;
+      color: var(--text);
+      font-weight: 800;
     }
 
     .hero p {
-      color: var(--muted);
-      font-size: 1.05rem;
-      max-width: 60ch;
+      margin: 0 0 28px;
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      color: rgba(31,31,31,0.68);
+      max-width: 32ch;
     }
 
-    .buttons {
+    .logo-row {
       display: flex;
-      gap: 14px;
       flex-wrap: wrap;
-      margin-top: 24px;
+      gap: 16px 26px;
+      align-items: center;
+      margin: 20px 0 38px;
+      opacity: 0.58;
+    }
+
+    .logo-pill {
+      border: 1px solid rgba(31,31,31,0.08);
+      background: rgba(255,255,255,0.2);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: rgba(31,31,31,0.55);
+      backdrop-filter: blur(4px);
+    }
+
+    .cta-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
     .btn {
-      display: inline-block;
-      padding: 12px 18px;
-      border-radius: 999px;
-      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0 24px;
+      border-radius: 10px;
+      border: 1px solid rgba(122,47,42,0.55);
+      background: transparent;
+      color: var(--accent);
       font-weight: 600;
-      border: 1px solid var(--border);
+      font-size: 1rem;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      background: rgba(122,47,42,0.06);
     }
 
     .btn.primary {
       background: var(--accent);
-      color: #0f172a;
+      color: white;
+      border-color: var(--accent);
     }
 
-    .btn.secondary {
-      color: var(--text);
-      background: rgba(255,255,255,0.04);
-    }
-
-    .card {
-      background: rgba(17, 24, 39, 0.75);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 24px;
-      box-shadow: 0 24px 80px rgba(0,0,0,0.25);
-      backdrop-filter: blur(12px);
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-bottom: 72px;
-    }
-
-    .stat {
-      text-align: center;
-      padding: 22px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--border);
-    }
-
-    .stat h3 {
-      margin: 0;
-      font-size: 1.8rem;
-      color: var(--accent-2);
+    .hint {
+      font-family: "Fira Code", monospace;
+      font-size: 0.72rem;
+      color: rgba(31,31,31,0.42);
+      margin-top: 12px;
     }
 
     .section {
-      margin-bottom: 72px;
+      padding: 20px 0 6px;
     }
 
-    .section h2 {
-      font-size: 2rem;
-      margin-bottom: 18px;
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 0 auto 18px;
+      width: min(100%, var(--max));
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      line-height: 1;
+    }
+
+    .section-head p {
+      margin: 0;
+      max-width: 58ch;
+      color: var(--muted);
+      font-size: 0.98rem;
     }
 
     .projects {
+      width: min(100%, var(--max));
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr;
       gap: 18px;
+      padding-bottom: 42px;
     }
 
-    .project h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
+    .project {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 24px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: 26px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
     }
 
-    .project p {
+    .project:nth-child(even) {
+      grid-template-columns: 1.05fr 0.95fr;
+    }
+
+    .project:nth-child(even) .project-visual {
+      order: 2;
+    }
+
+    .project:nth-child(even) .project-copy {
+      order: 1;
+    }
+
+    .project-visual {
+      border-radius: 22px;
+      min-height: 260px;
+      background:
+        linear-gradient(135deg, rgba(122,47,42,0.95), rgba(31,31,31,0.88)),
+        linear-gradient(135deg, #7a2f2a, #111827);
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      padding: 22px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.16), transparent 26%),
+        radial-gradient(circle at 80% 30%, rgba(255,255,255,0.12), transparent 24%);
+      pointer-events: none;
+    }
+
+    .project-badge {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.15);
+      font-family: "Fira Code", monospace;
+      font-size: 0.75rem;
+    }
+
+    .project-copy {
+      padding: 10px 8px 10px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .project-role {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .project-copy h3 {
+      margin: 8px 0 10px;
+      font-size: clamp(1.6rem, 2.2vw, 2.3rem);
+      line-height: 1.05;
+    }
+
+    .project-copy p {
+      margin: 0;
       color: var(--muted);
-      margin-bottom: 0;
+      max-width: 60ch;
+      font-size: 1rem;
     }
 
-    .contact a {
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      background: rgba(122,47,42,0.08);
+      color: #5d2b28;
+    }
+
+    .view-link {
+      margin-top: 18px;
+      font-weight: 700;
       color: var(--accent);
     }
 
-    footer {
-      text-align: center;
+    .about-wrap {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+      padding: 8px 0 36px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .box {
+      border: 1px solid var(--line);
+      background: var(--card-strong);
+      box-shadow: var(--shadow);
+      border-radius: 24px;
+      padding: 24px;
+    }
+
+    .box h3 {
+      margin: 0 0 10px;
+      font-size: 1.4rem;
+    }
+
+    .box p {
+      margin: 0;
       color: var(--muted);
-      padding-top: 18px;
-      border-top: 1px solid var(--border);
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .footer {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+      padding: 16px 0 54px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: rgba(31,31,31,0.58);
+      border-top: 1px solid rgba(31,31,31,0.08);
+    }
+
+    .tiny {
+      font-family: "Fira Code", monospace;
+      font-size: 0.78rem;
     }
 
     @media (max-width: 900px) {
-      .hero, .projects, .stats {
+      .nav-inner {
+        justify-content: center;
+      }
+
+      .hero-shell {
+        width: 100%;
+        padding: 28px 18px 18px;
+      }
+
+      .hero-card {
+        padding: 24px;
+        min-height: auto;
+      }
+
+      .hero h1 {
+        max-width: none;
+      }
+
+      .project,
+      .project:nth-child(even) {
         grid-template-columns: 1fr;
       }
 
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
+      .project:nth-child(even) .project-visual,
+      .project:nth-child(even) .project-copy {
+        order: initial;
       }
 
-      nav a {
-        margin-left: 0;
-        margin-right: 14px;
+      .about-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        flex-direction: column;
+        align-items: start;
       }
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <nav>
-      <div class="logo">Khushi Shahr</div>
-      <div>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-
-    <section class="hero">
-      <div>
-        <h1>Hi, I’m Khushi Shahr.<br />I build clean, modern web experiences.</h1>
-        <p>
-          I’m a developer focused on frontend design, responsive layouts, and projects that are simple,
-          elegant, and easy to use.
-        </p>
-        <div class="buttons">
-          <a class="btn primary" href="#projects">View Projects</a>
-          <a class="btn secondary" href="#contact">Get in Touch</a>
+  <div class="page">
+    <header class="nav">
+      <div class="container">
+        <div class="nav-inner">
+          <a href="#about">About</a>
+          <a href="#work">Work</a>
+          <a href="#resume">Resume</a>
         </div>
       </div>
+    </header>
 
-      <div class="card">
-        <h2 style="margin-top:0;">About Me</h2>
-        <p style="color: var(--muted); margin-bottom:0;">
-          Replace this with your own bio, skills, education, and what kind of work you want to do.
-        </p>
-      </div>
-    </section>
+    <main>
+      <section id="about" class="hero">
+        <div class="container">
+          <div class="hero-shell">
+            <div class="hero-card">
+              <div class="hero-kicker">Portfolio / UX / Frontend</div>
 
-    <section class="stats">
-      <div class="stat">
-        <h3>5+</h3>
-        <p>Projects built</p>
-      </div>
-      <div class="stat">
-        <h3>3</h3>
-        <p>Tech stacks</p>
-      </div>
-      <div class="stat">
-        <h3>100%</h3>
-        <p>Customizable</p>
-      </div>
-    </section>
+              <h1>
+                Hello, I'm
+                <strong>Khushi Shah</strong>
+              </h1>
 
-    <section id="projects" class="section">
-      <h2>Projects</h2>
-      <div class="projects">
-        <div class="card project">
-          <h3>Project One</h3>
-          <p>Describe what it does, the tools you used, and a result you are proud of.</p>
+              <p>
+                I build digital experiences with creativity, product thinking, and clean code.
+              </p>
+
+              <div class="logo-row" aria-label="Selected experience">
+                <div class="logo-pill">IU School of Medicine</div>
+                <div class="logo-pill">Google</div>
+                <div class="logo-pill">Mozilla Firefox</div>
+                <div class="logo-pill">Johnson Controls</div>
+                <div class="logo-pill">Maisha Lifestyle</div>
+              </div>
+
+              <div class="cta-row">
+                <a class="btn primary" href="#work">View My Work</a>
+                <a class="btn" href="mailto:khushishah@example.com">Contact Me</a>
+              </div>
+
+              <div class="hint">Replace emails, project names, and links with your real details.</div>
+            </div>
+          </div>
         </div>
-        <div class="card project">
-          <h3>Project Two</h3>
-          <p>Describe another project with a short, clear explanation.</p>
-        </div>
-        <div class="card project">
-          <h3>Project Three</h3>
-          <p>Add a third project or replace this with a resume download link.</p>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="contact" class="section contact">
-      <h2>Contact</h2>
-      <div class="card">
-        <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
-        <p>GitHub: <a href="https://github.com/khushishahr" target="_blank" rel="noreferrer">khushishahr</a></p>
-        <p>LinkedIn: <a href="#" target="_blank" rel="noreferrer">Add your profile link</a></p>
-      </div>
-    </section>
+      <section id="work" class="section">
+        <div class="section-head container">
+          <div>
+            <h2>Selected Work</h2>
+          </div>
+          <p>
+            Use these cards as case studies. Each one can become its own project page later.
+          </p>
+        </div>
 
-    <footer>
-      © 2026 Khushi Shahr
+        <div class="projects">
+          <article class="project container">
+            <div class="project-visual">
+              <div class="project-badge">Case Study 01</div>
+            </div>
+            <div class="project-copy">
+              <div>
+                <div class="project-role">IU School of Medicine</div>
+                <h3>Designing a research-friendly digital experience</h3>
+                <p>
+                  Add the problem, your role, tools, and the outcome. This is where you make the
+                  project feel detailed and credible.
+                </p>
+                <div class="tags">
+                  <span class="tag">UX Research</span>
+                  <span class="tag">Information Architecture</span>
+                  <span class="tag">Accessibility</span>
+                </div>
+              </div>
+              <a class="view-link" href="#">View Project →</a>
+            </div>
+          </article>
+
+          <article class="project container">
+            <div class="project-visual">
+              <div class="project-badge">Case Study 02</div>
+            </div>
+            <div class="project-copy">
+              <div>
+                <div class="project-role">Google</div>
+                <h3>Improving product flows and simplifying user decisions</h3>
+                <p>
+                  Highlight the challenge, the design process, and what changed after your work.
+                </p>
+                <div class="tags">
+                  <span class="tag">Product Design</span>
+                  <span class="tag">Prototyping</span>
+                  <span class="tag">Design Systems</span>
+                </div>
+              </div>
+              <a class="view-link" href="#">View Project →</a>
+            </div>
+          </article>
+
+          <article class="project container">
+            <div class="project-visual">
+              <div class="project-badge">Case Study 03</div>
+            </div>
+            <div class="project-copy">
+              <div>
+                <div class="project-role">Mozilla Firefox</div>
+                <h3>Building a trustworthy and intuitive browser experience</h3>
+                <p>
+                  Talk about the audience, the UI decisions, and the impact of the redesign.
+                </p>
+                <div class="tags">
+                  <span class="tag">Interaction Design</span>
+                  <span class="tag">Usability</span>
+                  <span class="tag">Frontend</span>
+                </div>
+              </div>
+              <a class="view-link" href="#">View Project →</a>
+            </div>
+          </article>
+
+          <article class="project container">
+            <div class="project-visual">
+              <div class="project-badge">Case Study 04</div>
+            </div>
+            <div class="project-copy">
+              <div>
+                <div class="project-role">Johnson Controls / Maisha Lifestyle</div>
+                <h3>Creating polished experiences for brand and product needs</h3>
+                <p>
+                  Add a project that shows both visual design and practical problem-solving.
+                </p>
+                <div class="tags">
+                  <span class="tag">Brand Systems</span>
+                  <span class="tag">Responsive UI</span>
+                  <span class="tag">Visual Design</span>
+                </div>
+              </div>
+              <a class="view-link" href="#">View Project →</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="resume" class="section">
+        <div class="about-wrap">
+          <div class="box">
+            <div class="tiny">ABOUT</div>
+            <h3>Write a short intro about yourself</h3>
+            <p>
+              I am Khushi Shah, a designer/developer creating thoughtful digital products and
+              portfolio case studies. I care about clarity, polish, and strong storytelling.
+            </p>
+          </div>
+
+          <div class="box">
+            <div class="tiny">SKILLS</div>
+            <h3>Tools and strengths</h3>
+            <div class="skills">
+              <span class="tag">Figma</span>
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">React</span>
+              <span class="tag">GitHub Pages</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact" class="footer">
+      <div>khushishahr.github.io</div>
+      <div>khushishah0311@gmail.com</div>
+      <div>© 2026 Khushi Shah</div>
     </footer>
   </div>
 </body>

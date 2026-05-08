@@ -1,35 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQCBZGQD6G"></script>
-
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-VQCBZGQD6G');
-  </script>
-
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Khushi Shah — portfolio of selected work, projects, and experience." />
+  <meta name="author" content="Khushi Shah" />
   <title>Khushi Shah — Portfolio</title>
-
-  <meta
-    name="description"
-    content="Portfolio of Khushi Shah — building thoughtful digital experiences with creativity and code."
-  />
 
   <style>
     :root{
       --bg: #f4ede5;
+      --bg-soft: #f8f3ec;
       --text: #1b1b1b;
       --muted: #6d655f;
       --accent: #7b1f29;
       --blue: #3560ff;
-      --line: rgba(122, 31, 41, 0.20);
-      --card: rgba(255,255,255,0.10);
+      --line: rgba(122, 31, 41, 0.18);
+      --card: rgba(255,255,255,0.12);
+      --card-strong: rgba(255,255,255,0.30);
+      --shadow: 0 22px 60px rgba(72, 45, 29, 0.10);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 14px;
+      --max: 1180px;
     }
 
     *{
@@ -40,18 +33,28 @@
 
     html{
       scroll-behavior:smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
     }
 
     body{
       font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "SF Pro Text",
         "Helvetica Neue",
         Helvetica,
         Arial,
         sans-serif;
 
-      background: var(--bg);
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.45), transparent 30%),
+        radial-gradient(circle at top right, rgba(255,255,255,0.28), transparent 26%),
+        linear-gradient(180deg, var(--bg), var(--bg-soft) 55%, #f7f1e7 100%);
       color: var(--text);
       overflow-x:hidden;
+      min-height:100vh;
     }
 
     a{
@@ -59,178 +62,168 @@
       color:inherit;
     }
 
-    .container{
-      width:min(1200px, calc(100% - 40px));
-      margin:auto;
+    img{
+      max-width:100%;
+      display:block;
     }
 
-    /* =========================
-       NAVBAR
-    ========================== */
+    .container{
+      width:min(100% - 32px, var(--max));
+      margin-inline:auto;
+    }
 
-    nav{
+    .page{
+      min-height:100vh;
+    }
+
+    /* NAV */
+    .nav{
       position:fixed;
       top:0;
       left:0;
       right:0;
-      z-index:999;
-      padding:28px 0;
+      z-index:1000;
+      padding: 18px 0;
+      background: linear-gradient(to bottom, rgba(244,237,229,0.94), rgba(244,237,229,0));
+      backdrop-filter: blur(8px);
     }
 
     .nav-inner{
       display:flex;
       justify-content:flex-end;
       align-items:center;
-      gap:42px;
+      gap: clamp(14px, 3vw, 34px);
+      flex-wrap:wrap;
+      padding-right: 4px;
     }
 
     .nav-inner a{
-      font-size:15px;
-      font-weight:500;
-      color:rgba(0,0,0,0.72);
-      transition:0.2s ease;
+      font-size: clamp(0.95rem, 1.4vw, 1rem);
+      font-weight: 600;
+      color: rgba(0,0,0,0.74);
+      transition: color 0.2s ease, opacity 0.2s ease;
     }
 
     .nav-inner a:hover{
-      color:black;
+      color: #000;
     }
 
-    /* =========================
-       HERO
-    ========================== */
-
+    /* HERO */
     .hero{
-      min-height:100vh;
+      min-height: 100svh;
       display:flex;
       align-items:flex-start;
       justify-content:center;
-      padding-top:140px;
+      padding-top: clamp(92px, 11vh, 150px);
+      padding-bottom: 40px;
     }
 
     .hero-shell{
       position:relative;
-      width:100%;
-      max-width:760px;
-      padding:54px 64px 24px;
+      width: min(100%, 760px);
+      margin-inline:auto;
+      padding: clamp(18px, 5vw, 54px) clamp(18px, 5.5vw, 64px) clamp(18px, 2.5vw, 24px);
     }
 
     .hero-card{
       position:relative;
       z-index:5;
-
-      background:var(--card);
-
-      padding:40px;
-
-      transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-
-      backdrop-filter:blur(3px);
+      background: var(--card);
+      border: 1px solid rgba(60, 90, 255, 0.34);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow);
+      padding: clamp(22px, 4.5vw, 40px);
+      backdrop-filter: blur(4px);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     .hero-shell:hover .hero-card{
-      transform:translateY(-2px);
+      transform: translateY(-2px);
+      box-shadow: 0 28px 72px rgba(72, 45, 29, 0.14);
     }
 
-    /* =========================
-       TYPOGRAPHY
-    ========================== */
-
     .hero h1{
-      font-size:60px;
-      line-height:0.95;
-      letter-spacing:-4px;
-      font-weight:300;
-
-      color:rgba(0,0,0,0.62);
-
-      margin-bottom:24px;
+      font-size: clamp(2.9rem, 8vw, 5rem);
+      line-height: 0.95;
+      letter-spacing: clamp(-2.5px, -0.25vw, -4px);
+      font-weight: 300;
+      color: rgba(0,0,0,0.62);
+      margin-bottom: clamp(18px, 3vw, 24px);
+      max-width: 12ch;
     }
 
     .hero h1 strong{
       display:block;
-      font-weight:700;
-      color:black;
+      font-weight: 700;
+      color: #000;
     }
 
     .hero p{
-      font-size:28px;
-      line-height:1.4;
-      color:rgba(0,0,0,0.60);
-
-      margin-bottom:42px;
-
-      max-width:700px;
+      font-size: clamp(1.08rem, 2.2vw, 1.8rem);
+      line-height: 1.45;
+      color: rgba(0,0,0,0.62);
+      margin-bottom: clamp(22px, 4vw, 42px);
+      max-width: 28ch;
     }
-
-    /* =========================
-       LOGOS
-    ========================== */
 
     .logos{
       display:flex;
       flex-wrap:wrap;
-      gap:18px;
+      gap: clamp(10px, 2vw, 18px);
       align-items:center;
-
-      margin-bottom:42px;
+      margin-bottom: clamp(24px, 4vw, 42px);
     }
 
     .logo-pill{
-      font-size:18px;
-      font-weight:600;
-
-      color:rgba(0,0,0,0.26);
-
-      transition:0.3s ease;
-
-      cursor:pointer;
+      font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+      font-weight: 600;
+      color: rgba(0,0,0,0.26);
+      transition: color 0.25s ease, transform 0.25s ease, opacity 0.25s ease;
+      cursor: default;
+      white-space: nowrap;
     }
 
     .logo-pill:hover{
-      color:black;
+      color: #000;
+      transform: translateY(-1px);
     }
-
-    /* =========================
-       BUTTON
-    ========================== */
 
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-
-      padding:16px 26px;
-
-      border:1px solid var(--accent);
-
-      color:var(--accent);
-
-      font-size:18px;
-      font-weight:600;
-
-      background:transparent;
-
-      transition:0.25s ease;
+      min-height: 54px;
+      padding: 0 24px;
+      border-radius: 10px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      background: transparent;
+      font-size: clamp(1rem, 1.8vw, 1.1rem);
+      font-weight: 600;
+      transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+      touch-action: manipulation;
     }
 
     .btn:hover{
-      background:var(--accent);
-      color:white;
+      background: var(--accent);
+      color: #fff;
+      transform: translateY(-1px);
     }
 
-    /* =========================
-       HOVER OVERLAY
-    ========================== */
+    .btn:focus-visible,
+    .nav-inner a:focus-visible,
+    .view-link:focus-visible{
+      outline: 2px solid rgba(53, 96, 255, 0.7);
+      outline-offset: 3px;
+      border-radius: 8px;
+    }
 
+    /* OVERLAY */
     .overlay{
       position:absolute;
       inset:0;
-
       opacity:0;
-      transition:0.25s ease;
-
+      transition: opacity 0.25s ease;
       pointer-events:none;
       z-index:20;
     }
@@ -239,510 +232,535 @@
       opacity:1;
     }
 
-    /* OUTER DASHED BOX */
-
     .outer-box{
       position:absolute;
-
-      top:0;
-      left:0;
-      right:0;
-      bottom:0;
-
-      border:1px dashed rgba(122,31,41,0.25);
+      inset: 0;
+      border: 1px dashed rgba(122,31,41,0.24);
+      border-radius: 16px;
     }
-
-    /* INNER BLUE BOX */
 
     .inner-box{
       position:absolute;
-
-      top:54px;
-      left:64px;
-      right:64px;
-      bottom:24px;
-
-      border:1px solid rgba(53,96,255,0.55);
+      top: 54px;
+      left: 64px;
+      right: 64px;
+      bottom: 24px;
+      border: 1px solid rgba(53,96,255,0.55);
+      border-radius: 10px;
     }
-
-    /* LABELS */
 
     .label{
       position:absolute;
-
-      background:var(--accent);
-
-      color:white;
-
-      font-size:10px;
-
-      padding:4px 6px;
-
-      border-radius:4px;
-
-      font-family:monospace;
+      background: var(--accent);
+      color: #fff;
+      font-size: 10px;
+      padding: 4px 6px;
+      border-radius: 4px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      line-height:1;
+      white-space:nowrap;
     }
 
-    .label-top{
-      top:-14px;
-      left:0;
-    }
-
+    .label-top{ top: -14px; left: 0; }
     .label-left{
-      top:50%;
-      left:-26px;
-      transform:translateY(-50%) rotate(-90deg);
+      top: 50%;
+      left: -26px;
+      transform: translateY(-50%) rotate(-90deg);
+      transform-origin: center;
     }
-
     .label-padding{
-      top:54px;
-      left:64px;
-      background:var(--blue);
+      top: 54px;
+      left: 64px;
+      background: var(--blue);
     }
-
     .label-bottom{
-      left:50%;
-      bottom:-34px;
-      transform:translateX(-50%);
+      left: 50%;
+      bottom: -34px;
+      transform: translateX(-50%);
     }
 
-    /* =========================
-       WORK SECTION
-    ========================== */
+    .measure{
+      position:absolute;
+      pointer-events:none;
+      opacity:0.95;
+    }
 
+    .measure.horizontal{
+      left: 104px;
+      bottom: 24px;
+      width: min(158px, 22vw);
+      height: 52px;
+    }
+
+    .measure.horizontal::before,
+    .measure.horizontal::after{
+      content:"";
+      position:absolute;
+      left:0;
+      width:100%;
+      height:1px;
+      background:#9ca3af;
+      bottom:0;
+    }
+
+    .measure.horizontal span{
+      position:absolute;
+      left:50%;
+      bottom:-2px;
+      transform:translateX(-50%);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 9px;
+      color:#6b7280;
+    }
+
+    .measure.vertical{
+      right: 104px;
+      top: 54px;
+      width: 24px;
+      height: 52px;
+    }
+
+    .measure.vertical::before,
+    .measure.vertical::after{
+      content:"";
+      position:absolute;
+      top:0;
+      left:50%;
+      transform:translateX(-50%);
+      width:1px;
+      height:100%;
+      background:#9ca3af;
+    }
+
+    .measure.vertical span{
+      position:absolute;
+      top:50%;
+      right:-10px;
+      transform: translateY(-50%) rotate(90deg);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 9px;
+      color:#6b7280;
+    }
+
+    /* WORK */
     .work{
-      padding:40px 0 140px;
+      padding: 28px 0 100px;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 16px;
+      margin-bottom: 22px;
     }
 
     .section-title{
-      font-size:52px;
-      font-weight:700;
-      letter-spacing:-2px;
+      font-size: clamp(2rem, 4.8vw, 3.4rem);
+      line-height:1;
+      letter-spacing: -0.06em;
+      font-weight: 700;
+    }
 
-      margin-bottom:40px;
+    .section-desc{
+      max-width: 62ch;
+      color: var(--muted);
+      font-size: clamp(0.98rem, 1.6vw, 1.05rem);
+      line-height: 1.6;
+    }
+
+    .projects{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
     }
 
     .project{
       display:grid;
-      grid-template-columns:1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(18px, 3vw, 40px);
+      background: rgba(255,255,255,0.28);
+      border: 1px solid rgba(0,0,0,0.05);
+      border-radius: var(--radius-xl);
+      padding: clamp(16px, 2.5vw, 24px);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
 
-      gap:40px;
+    .project:nth-child(even) .project-image{
+      order: 2;
+    }
 
-      margin-bottom:42px;
-
-      background:rgba(255,255,255,0.28);
-
-      border:1px solid rgba(0,0,0,0.05);
-
-      padding:24px;
+    .project:nth-child(even) .project-content{
+      order: 1;
     }
 
     .project-image{
-      background:linear-gradient(
-        135deg,
-        #7b1f29,
-        #111
-      );
-
-      min-height:320px;
-
+      min-height: clamp(240px, 34vw, 360px);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, #7b1f29, #111);
       display:flex;
       align-items:flex-end;
-
-      padding:24px;
-
-      color:white;
-
-      font-size:14px;
-      font-weight:600;
+      padding: 24px;
+      color:#fff;
+      font-size: 14px;
+      font-weight: 600;
     }
 
     .project-content{
       display:flex;
       flex-direction:column;
       justify-content:center;
+      padding: 8px 0;
     }
 
     .role{
-      font-size:13px;
-      font-weight:700;
-
-      color:var(--accent);
-
-      text-transform:uppercase;
-
-      letter-spacing:1px;
-
-      margin-bottom:14px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 12px;
     }
 
     .project-content h3{
-      font-size:44px;
-      line-height:1;
-      letter-spacing:-2px;
-
-      margin-bottom:18px;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+      margin-bottom: 18px;
     }
 
     .project-content p{
-      font-size:18px;
-      line-height:1.6;
-
-      color:var(--muted);
-
-      margin-bottom:22px;
+      font-size: clamp(1rem, 1.7vw, 1.12rem);
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 18px;
+      max-width: 58ch;
     }
 
     .tags{
       display:flex;
       flex-wrap:wrap;
-      gap:10px;
-
-      margin-bottom:22px;
+      gap: 10px;
+      margin-bottom: 20px;
     }
 
     .tag{
-      background:rgba(122,31,41,0.08);
-
-      color:var(--accent);
-
-      padding:10px 14px;
-
-      border-radius:999px;
-
-      font-size:14px;
-      font-weight:600;
+      background: rgba(122,31,41,0.08);
+      color: var(--accent);
+      padding: 9px 13px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      white-space:nowrap;
     }
 
     .view-link{
-      color:var(--accent);
-
-      font-size:17px;
-      font-weight:700;
+      color: var(--accent);
+      font-size: 1rem;
+      font-weight: 700;
+      width: fit-content;
     }
 
-    /* =========================
-       FOOTER
-    ========================== */
-
+    /* FOOTER */
     footer{
-      border-top:1px solid rgba(0,0,0,0.08);
-
-      padding:60px 0;
-
-      margin-top:40px;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      padding: 44px 0 56px;
+      margin-top: 16px;
     }
 
     .footer-inner{
       display:flex;
       justify-content:space-between;
-      gap:20px;
+      align-items:flex-start;
+      gap: 22px;
       flex-wrap:wrap;
     }
 
-    footer h3{
-      font-size:14px;
-      letter-spacing:1px;
-      margin-bottom:12px;
-      color:rgba(0,0,0,0.45);
+    footer h4{
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.45);
+      margin-bottom: 10px;
     }
 
     footer p,
     footer a{
-      font-size:18px;
-      color:black;
+      font-size: clamp(1rem, 1.8vw, 1.12rem);
+      color: #000;
+      line-height:1.6;
     }
 
-    /* =========================
-       RESPONSIVE
-    ========================== */
-
-    @media(max-width:900px){
-
-      .hero{
-        padding-top:120px;
-      }
-
-      .hero-shell{
-        padding:20px;
-      }
-
-      .hero-card{
-        padding:28px;
-      }
-
-      .hero h1{
-        font-size:52px;
-        letter-spacing:-2px;
-      }
-
-      .hero p{
-        font-size:20px;
-      }
-
+    /* RESPONSIVE TUNING */
+    @media (max-width: 1024px){
       .project{
-        grid-template-columns:1fr;
+        grid-template-columns: 1fr;
       }
 
-      .project-content h3{
-        font-size:32px;
+      .project:nth-child(even) .project-image,
+      .project:nth-child(even) .project-content{
+        order: initial;
       }
+    }
 
-      .section-title{
-        font-size:38px;
+    @media (max-width: 768px){
+      .nav{
+        padding: 14px 0;
       }
 
       .nav-inner{
         justify-content:center;
-        gap:24px;
+        gap: 16px 22px;
+      }
+
+      .hero{
+        min-height: auto;
+        padding-top: 92px;
+      }
+
+      .hero-shell{
+        padding: 14px;
+      }
+
+      .hero-card{
+        padding: 22px;
+      }
+
+      .hero h1{
+        max-width:none;
+      }
+
+      .hero p{
+        max-width:none;
       }
 
       .inner-box{
-        top:20px;
-        left:20px;
-        right:20px;
-        bottom:20px;
+        top: 18px;
+        left: 18px;
+        right: 18px;
+        bottom: 18px;
       }
 
       .label-padding{
-        top:20px;
-        left:20px;
+        top: 18px;
+        left: 18px;
+      }
+
+      .label-left{
+        left: -22px;
+      }
+
+      .measure.horizontal{
+        left: 82px;
+        width: 120px;
+      }
+
+      .measure.vertical{
+        right: 82px;
+      }
+
+      .section-head{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .footer-inner{
+        flex-direction:column;
       }
     }
 
+    @media (max-width: 520px){
+      .container{
+        width: min(100% - 24px, var(--max));
+      }
+
+      .hero{
+        padding-top: 82px;
+      }
+
+      .hero-card{
+        border-radius: 18px;
+      }
+
+      .hero h1{
+        font-size: clamp(2.5rem, 14vw, 3.4rem);
+      }
+
+      .hero p{
+        font-size: 1.02rem;
+      }
+
+      .logo-pill{
+        font-size: 0.95rem;
+      }
+
+      .btn{
+        width: 100%;
+      }
+
+      .project-image{
+        min-height: 200px;
+      }
+
+      .section-desc{
+        max-width:none;
+      }
+    }
+
+    @media (hover: none){
+      .hero-shell:hover .hero-card{
+        transform:none;
+        box-shadow: var(--shadow);
+      }
+
+      .hero-shell:hover .overlay{
+        opacity:0;
+      }
+    }
   </style>
 </head>
-
 <body>
-
-  <!-- NAV -->
-
-  <nav>
-    <div class="container">
-      <div class="nav-inner">
-        <a href="#about">About</a>
-        <a href="#work">Work</a>
-        <a href="#resume">Resume</a>
+  <div class="page">
+    <header class="nav">
+      <div class="container">
+        <div class="nav-inner">
+          <a href="#about">About</a>
+          <a href="#work">Work</a>
+          <a href="#resume">Resume</a>
+        </div>
       </div>
-    </div>
-  </nav>
+    </header>
 
-  <!-- HERO -->
+    <main>
+      <section id="about" class="hero">
+        <div class="container">
+          <div class="hero-shell">
+            <div class="hero-card">
+              <h1>
+                Hello, I'm
+                <strong>Khushi Shah</strong>
+              </h1>
 
-  <section id="about" class="hero">
+              <p>Building digital experiences with creativity and code.</p>
 
-    <div class="hero-shell">
+              <div class="logos" aria-label="Experience logos">
+                <div class="logo-pill">IU School of Medicine</div>
+                <div class="logo-pill">Google</div>
+                <div class="logo-pill">Mozilla Firefox</div>
+                <div class="logo-pill">Johnson Controls</div>
+                <div class="logo-pill">Maisha Lifestyle</div>
+              </div>
 
-      <div class="hero-card">
+              <a href="#work" class="btn">View My Work</a>
+            </div>
 
-        <h1>
-          Hello, I'm
-          <strong>Khushi Shah</strong>
-        </h1>
+            <div class="overlay" aria-hidden="true">
+              <div class="outer-box"></div>
+              <div class="inner-box"></div>
 
-        <p>
-          Building digital experiences with creativity and code.
-        </p>
+              <div class="label label-top">margin: 54px</div>
+              <div class="label label-left">margin: 64px</div>
+              <div class="label label-padding">padding: 40px</div>
+              <div class="label label-bottom">width: auto</div>
 
-        <div class="logos">
-          <div class="logo-pill">IU School of Medicine</div>
-          <div class="logo-pill">Google</div>
-          <div class="logo-pill">Mozilla Firefox</div>
-          <div class="logo-pill">Johnson Controls</div>
-          <div class="logo-pill">Maisha Lifestyle</div>
+              <div class="measure horizontal"><span>24px</span></div>
+              <div class="measure vertical"><span>12px</span></div>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <a href="#work" class="btn">
-          View My Work
-        </a>
-
-      </div>
-
-      <!-- HOVER OVERLAY -->
-
-      <div class="overlay">
-
-        <div class="outer-box"></div>
-
-        <div class="inner-box"></div>
-
-        <div class="label label-top">
-          margin: 54px
-        </div>
-
-        <div class="label label-left">
-          margin: 64px
-        </div>
-
-        <div class="label label-padding">
-          padding: 40px
-        </div>
-
-        <div class="label label-bottom">
-          width: auto
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- WORK -->
-
-  <section id="work" class="work">
-
-    <div class="container">
-
-      <h2 class="section-title">
-        Selected Work
-      </h2>
-
-      <!-- PROJECT -->
-
-      <div class="project">
-
-        <div class="project-image">
-          Case Study 01
-        </div>
-
-        <div class="project-content">
-
-          <div class="role">
-            IU SCHOOL OF MEDICINE
+      <section id="work" class="work">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title">Selected Work</h2>
+            </div>
+            <p class="section-desc">
+              Use these cards as case studies. Each project can link to its own detailed page later.
+            </p>
           </div>
 
-          <h3>
-            Designing better research and healthcare experiences
-          </h3>
+          <div class="projects">
+            <article class="project">
+              <div class="project-image">Case Study 01</div>
+              <div class="project-content">
+                <div class="role">IU SCHOOL OF MEDICINE</div>
+                <h3>Designing better research and healthcare experiences</h3>
+                <p>
+                  Created thoughtful interfaces and systems focused on usability, accessibility,
+                  and improving digital workflows.
+                </p>
+                <div class="tags">
+                  <span class="tag">UX Research</span>
+                  <span class="tag">Healthcare</span>
+                  <span class="tag">Accessibility</span>
+                </div>
+                <a class="view-link" href="#">View Project →</a>
+              </div>
+            </article>
 
-          <p>
-            Created thoughtful interfaces and systems focused on usability,
-            accessibility, and improving digital workflows.
-          </p>
+            <article class="project">
+              <div class="project-image">Case Study 02</div>
+              <div class="project-content">
+                <div class="role">GOOGLE</div>
+                <h3>Improving user flows and simplifying product experiences</h3>
+                <p>
+                  Worked on scalable digital experiences with strong visual systems and clean
+                  interaction design.
+                </p>
+                <div class="tags">
+                  <span class="tag">Design Systems</span>
+                  <span class="tag">Interaction</span>
+                  <span class="tag">Frontend</span>
+                </div>
+                <a class="view-link" href="#">View Project →</a>
+              </div>
+            </article>
 
-          <div class="tags">
-            <div class="tag">UX Research</div>
-            <div class="tag">Healthcare</div>
-            <div class="tag">Accessibility</div>
+            <article class="project">
+              <div class="project-image">Case Study 03</div>
+              <div class="project-content">
+                <div class="role">MOZILLA FIREFOX</div>
+                <h3>Building trustworthy and intuitive digital experiences</h3>
+                <p>
+                  Focused on usability, performance, and accessible interaction patterns for
+                  modern interfaces.
+                </p>
+                <div class="tags">
+                  <span class="tag">UI Design</span>
+                  <span class="tag">Usability</span>
+                  <span class="tag">Responsive</span>
+                </div>
+                <a class="view-link" href="#">View Project →</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="resume">
+      <div class="container">
+        <div class="footer-inner">
+          <div>
+            <h4>Contact</h4>
+            <p>khushishah@email.com</p>
           </div>
 
-          <a href="#" class="view-link">
-            View Project →
-          </a>
+          <div>
+            <h4>Links</h4>
+            <a href="https://github.com/khushishahr">github.com/khushishahr</a>
+          </div>
 
+          <div>
+            <h4>© 2026 Khushi Shah</h4>
+            <p>Made with creativity & code.</p>
+          </div>
         </div>
-
       </div>
-
-      <!-- PROJECT -->
-
-      <div class="project">
-
-        <div class="project-image">
-          Case Study 02
-        </div>
-
-        <div class="project-content">
-
-          <div class="role">
-            GOOGLE
-          </div>
-
-          <h3>
-            Improving user flows and simplifying product experiences
-          </h3>
-
-          <p>
-            Worked on scalable digital experiences with strong visual systems
-            and clean interaction design.
-          </p>
-
-          <div class="tags">
-            <div class="tag">Design Systems</div>
-            <div class="tag">Interaction</div>
-            <div class="tag">Frontend</div>
-          </div>
-
-          <a href="#" class="view-link">
-            View Project →
-          </a>
-
-        </div>
-
-      </div>
-
-      <!-- PROJECT -->
-
-      <div class="project">
-
-        <div class="project-image">
-          Case Study 03
-        </div>
-
-        <div class="project-content">
-
-          <div class="role">
-            MOZILLA FIREFOX
-          </div>
-
-          <h3>
-            Building trustworthy and intuitive digital experiences
-          </h3>
-
-          <p>
-            Focused on usability, performance, and accessible interaction
-            patterns for modern interfaces.
-          </p>
-
-          <div class="tags">
-            <div class="tag">UI Design</div>
-            <div class="tag">Usability</div>
-            <div class="tag">Responsive</div>
-          </div>
-
-          <a href="#" class="view-link">
-            View Project →
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- FOOTER -->
-
-  <footer id="resume">
-
-    <div class="container">
-
-      <div class="footer-inner">
-
-        <div>
-          <h3>CONTACT</h3>
-          <p>khushishah@email.com</p>
-        </div>
-
-        <div>
-          <h3>LINKS</h3>
-          <a href="https://github.com/khushishahr">
-            github.com/khushishahr
-          </a>
-        </div>
-
-        <div>
-          <h3>© 2026 KHUSHI SHAH</h3>
-          <p>Made with creativity & code.</p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </footer>
-
+    </footer>
+  </div>
 </body>
 </html>

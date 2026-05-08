@@ -1,755 +1,750 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQCBZGQD6G"></script>
+
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-VQCBZGQD6G', {
-      send_page_view: false
-    });
+    gtag('config', 'G-VQCBZGQD6G');
   </script>
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Khushi Shah — portfolio of selected work, projects, and experience." />
-  <meta name="author" content="Khushi Shah" />
-  <title>Khushi Shah – Portfolio</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>Khushi Shah — Portfolio</title>
+
+  <meta
+    name="description"
+    content="Portfolio of Khushi Shah — building thoughtful digital experiences with creativity and code."
+  />
 
   <style>
     :root{
-      --bg: #f6efe6;
-      --bg-soft: #f3e9dd;
-      --text: #1f1f1f;
-      --muted: #6f685f;
-      --card: rgba(255,255,255,0.38);
-      --card-strong: rgba(255,255,255,0.64);
-      --line: rgba(102, 73, 57, 0.14);
-      --accent: #7a2f2a;
-      --accent-2: #233f8f;
-      --shadow: 0 24px 60px rgba(72, 45, 29, 0.10);
-      --radius: 28px;
-      --max: 1160px;
+      --bg: #f4ede5;
+      --text: #1b1b1b;
+      --muted: #6d655f;
+      --accent: #7b1f29;
+      --blue: #3560ff;
+      --line: rgba(122, 31, 41, 0.20);
+      --card: rgba(255,255,255,0.10);
     }
-.hero {
-  padding-top: 86px;
-  padding-bottom: 40px;
-}
 
-.hero-shell {
-  position: relative;
-  width: min(100%, 760px);
-  margin: 0 auto;
-  padding: 54px 64px 24px 64px;
-}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
 
-.hero-card {
-  position: relative;
-  z-index: 2;
-  border: 1px solid rgba(60, 83, 176, 0.35);
-  background: rgba(255, 255, 255, 0.18);
-  box-shadow: 0 24px 60px rgba(72, 45, 29, 0.10);
-  border-radius: 10px;
-  padding: 40px;
-  min-height: 420px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
+    html{
+      scroll-behavior:smooth;
+    }
 
-.hero-shell:hover .hero-card {
-  transform: translateY(-2px);
-  box-shadow: 0 30px 70px rgba(72, 45, 29, 0.14);
-}
+    body{
+      font-family:
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
 
-.box-overlay {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.25s ease;
-  z-index: 3;
-}
-
-.hero-shell:hover .box-overlay {
-  opacity: 1;
-}
-
-.dashed-box {
-  position: absolute;
-  inset: -54px -64px -24px;
-  border: 1px dashed rgba(122, 47, 42, 0.28);
-  border-radius: 16px;
-}
-
-.inner-box {
-  position: absolute;
-  inset: 54px 64px 24px;
-  border: 1px solid rgba(80, 120, 255, 0.75);
-  border-radius: 10px;
-}
-
-.label {
-  position: absolute;
-  background: #7a2f2a;
-  color: white;
-  font-family: "Fira Code", monospace;
-  font-size: 10px;
-  line-height: 1;
-  padding: 4px 6px;
-  border-radius: 4px;
-  z-index: 4;
-}
-
-.label.top {
-  top: -12px;
-  left: 0;
-}
-
-.label.left {
-  left: -22px;
-  top: 50%;
-  transform: translateY(-50%) rotate(-90deg);
-}
-
-.label.padding {
-  top: 54px;
-  left: 64px;
-  background: #204ecf;
-}
-
-.label.bottom {
-  left: 50%;
-  bottom: -34px;
-  transform: translateX(-50%);
-}
-
-.measure.horizontal {
-  position: absolute;
-  left: 104px;
-  bottom: 24px;
-  width: 158px;
-  height: 52px;
-}
-
-.measure.horizontal::before,
-.measure.horizontal::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 1px;
-  background: #9ca3af;
-}
-
-.measure.horizontal span {
-  position: absolute;
-  left: 50%;
-  bottom: -2px;
-  transform: translateX(-50%);
-  font-family: "Fira Code", monospace;
-  font-size: 9px;
-  color: #6b7280;
-  background: transparent;
-}
-
-.measure.vertical {
-  position: absolute;
-  right: 104px;
-  top: 54px;
-  height: 52px;
-  width: 24px;
-}
-
-.measure.vertical::before,
-.measure.vertical::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 1px;
-  height: 100%;
-  background: #9ca3af;
-}
-
-.measure.vertical span {
-  position: absolute;
-  top: 50%;
-  right: -10px;
-  transform: translateY(-50%) rotate(90deg);
-  font-family: "Fira Code", monospace;
-  font-size: 9px;
-  color: #6b7280;
-}
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: "Outfit", system-ui, sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.55), transparent 30%),
-        radial-gradient(circle at top right, rgba(255,255,255,0.35), transparent 25%),
-        linear-gradient(180deg, var(--bg), #f8f3ec 50%, #f7f1e7 100%);
+      background: var(--bg);
       color: var(--text);
+      overflow-x:hidden;
     }
 
-    a { color: inherit; text-decoration: none; }
-
-    .page {
-      min-height: 100vh;
-      overflow-x: hidden;
+    a{
+      text-decoration:none;
+      color:inherit;
     }
 
-    .container {
-      width: min(calc(100% - 32px), var(--max));
-      margin: 0 auto;
+    .container{
+      width:min(1200px, calc(100% - 40px));
+      margin:auto;
     }
 
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 20;
-      padding: 18px 0;
-      background: linear-gradient(to bottom, rgba(246,239,230,0.92), rgba(246,239,230,0));
-      backdrop-filter: blur(8px);
+    /* =========================
+       NAVBAR
+    ========================== */
+
+    nav{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:999;
+      padding:28px 0;
     }
 
-    .nav-inner {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 24px;
-      padding-right: 6px;
+    .nav-inner{
+      display:flex;
+      justify-content:flex-end;
+      align-items:center;
+      gap:42px;
     }
 
-    .nav a {
-      font-size: 0.98rem;
-      font-weight: 600;
-      color: rgba(31,31,31,0.78);
-      transition: color 0.2s ease;
-    }
-    .nav a:hover { color: var(--text); }
-
-    .hero h1 {
-      margin: 0 0 18px;
-      font-size: clamp(3rem, 6vw, 5.2rem);
-      line-height: 0.98;
-      font-weight: 500;
-      max-width: 11ch;
-      color: rgba(31,31,31,0.72);
+    .nav-inner a{
+      font-size:15px;
+      font-weight:500;
+      color:rgba(0,0,0,0.72);
+      transition:0.2s ease;
     }
 
-    .hero h1 strong {
-      display: block;
-      color: var(--text);
-      font-weight: 800;
+    .nav-inner a:hover{
+      color:black;
     }
 
-    .hero p {
-      margin: 0 0 28px;
-      font-size: clamp(1.05rem, 2vw, 1.25rem);
-      color: rgba(31,31,31,0.68);
-      max-width: 32ch;
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding-top:140px;
     }
 
-    .logo-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px 26px;
-      align-items: center;
-      margin: 20px 0 38px;
-      opacity: 0.58;
+    .hero-shell{
+      position:relative;
+      width:100%;
+      max-width:760px;
+      padding:54px 64px 24px;
     }
 
-    .logo-pill {
-      border: 1px solid rgba(31,31,31,0.08);
-      background: rgba(255,255,255,0.2);
-      padding: 10px 14px;
-      border-radius: 999px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: rgba(31,31,31,0.55);
-      backdrop-filter: blur(4px);
+    .hero-card{
+      position:relative;
+      z-index:5;
+
+      background:var(--card);
+
+      border:1px solid rgba(60,90,255,0.4);
+
+      padding:40px;
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+      backdrop-filter:blur(3px);
     }
 
-    .cta-row {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
+    .hero-shell:hover .hero-card{
+      transform:translateY(-2px);
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 54px;
-      padding: 0 24px;
-      border-radius: 10px;
-      border: 1px solid rgba(122,47,42,0.55);
-      background: transparent;
-      color: var(--accent);
-      font-weight: 600;
-      font-size: 1rem;
-      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+    /* =========================
+       TYPOGRAPHY
+    ========================== */
+
+    .hero h1{
+      font-size:78px;
+      line-height:0.95;
+      letter-spacing:-4px;
+      font-weight:300;
+
+      color:rgba(0,0,0,0.62);
+
+      margin-bottom:24px;
     }
 
-    .btn:hover {
-      transform: translateY(-1px);
-      background: rgba(122,47,42,0.06);
+    .hero h1 strong{
+      display:block;
+      font-weight:700;
+      color:black;
     }
 
-    .btn.primary {
-      background: var(--accent);
-      color: white;
-      border-color: var(--accent);
+    .hero p{
+      font-size:28px;
+      line-height:1.4;
+      color:rgba(0,0,0,0.60);
+
+      margin-bottom:42px;
+
+      max-width:700px;
     }
 
-    .hint {
-      font-family: "Fira Code", monospace;
-      font-size: 0.72rem;
-      color: rgba(31,31,31,0.42);
-      margin-top: 12px;
+    /* =========================
+       LOGOS
+    ========================== */
+
+    .logos{
+      display:flex;
+      flex-wrap:wrap;
+      gap:18px;
+      align-items:center;
+
+      margin-bottom:42px;
     }
 
-    .section {
-      padding: 20px 0 6px;
+    .logo-pill{
+      font-size:18px;
+      font-weight:600;
+
+      color:rgba(0,0,0,0.26);
+
+      transition:0.3s ease;
+
+      cursor:pointer;
     }
 
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 16px;
-      margin: 0 auto 18px;
-      width: min(100%, var(--max));
+    .logo-pill:hover{
+      color:black;
     }
 
-    .section-head h2 {
-      margin: 0;
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      line-height: 1;
+    /* =========================
+       BUTTON
+    ========================== */
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      padding:16px 26px;
+
+      border:1px solid var(--accent);
+
+      color:var(--accent);
+
+      font-size:18px;
+      font-weight:600;
+
+      background:transparent;
+
+      transition:0.25s ease;
     }
 
-    .section-head p {
-      margin: 0;
-      max-width: 58ch;
-      color: var(--muted);
-      font-size: 0.98rem;
+    .btn:hover{
+      background:var(--accent);
+      color:white;
     }
 
-    .projects {
-      width: min(100%, var(--max));
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
-      padding-bottom: 42px;
+    /* =========================
+       HOVER OVERLAY
+    ========================== */
+
+    .overlay{
+      position:absolute;
+      inset:0;
+
+      opacity:0;
+      transition:0.25s ease;
+
+      pointer-events:none;
+      z-index:20;
     }
 
-    .project {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 24px;
-      border: 1px solid var(--line);
-      background: var(--card);
-      border-radius: 26px;
-      padding: 18px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
+    .hero-shell:hover .overlay{
+      opacity:1;
     }
 
-    .project:nth-child(even) {
-      grid-template-columns: 1.05fr 0.95fr;
+    /* OUTER DASHED BOX */
+
+    .outer-box{
+      position:absolute;
+
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+
+      border:1px dashed rgba(122,31,41,0.25);
     }
 
-    .project:nth-child(even) .project-visual {
-      order: 2;
+    /* INNER BLUE BOX */
+
+    .inner-box{
+      position:absolute;
+
+      top:54px;
+      left:64px;
+      right:64px;
+      bottom:24px;
+
+      border:1px solid rgba(53,96,255,0.55);
     }
 
-    .project:nth-child(even) .project-copy {
-      order: 1;
+    /* LABELS */
+
+    .label{
+      position:absolute;
+
+      background:var(--accent);
+
+      color:white;
+
+      font-size:10px;
+
+      padding:4px 6px;
+
+      border-radius:4px;
+
+      font-family:monospace;
     }
 
-    .project-visual {
-      border-radius: 22px;
-      min-height: 260px;
-      background:
-        linear-gradient(135deg, rgba(122,47,42,0.95), rgba(31,31,31,0.88)),
-        linear-gradient(135deg, #7a2f2a, #111827);
-      display: flex;
-      align-items: flex-end;
-      justify-content: flex-start;
-      padding: 22px;
-      color: white;
-      position: relative;
-      overflow: hidden;
+    .label-top{
+      top:-14px;
+      left:0;
     }
 
-    .project-visual::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.16), transparent 26%),
-        radial-gradient(circle at 80% 30%, rgba(255,255,255,0.12), transparent 24%);
-      pointer-events: none;
+    .label-left{
+      top:50%;
+      left:-26px;
+      transform:translateY(-50%) rotate(-90deg);
     }
 
-    .project-badge {
-      position: relative;
-      z-index: 1;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.15);
-      font-family: "Fira Code", monospace;
-      font-size: 0.75rem;
+    .label-padding{
+      top:54px;
+      left:64px;
+      background:var(--blue);
     }
 
-    .project-copy {
-      padding: 10px 8px 10px 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 16px;
+    .label-bottom{
+      left:50%;
+      bottom:-34px;
+      transform:translateX(-50%);
     }
 
-    .project-role {
-      font-size: 0.92rem;
-      font-weight: 700;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+    /* =========================
+       WORK SECTION
+    ========================== */
+
+    .work{
+      padding:40px 0 140px;
     }
 
-    .project-copy h3 {
-      margin: 8px 0 10px;
-      font-size: clamp(1.6rem, 2.2vw, 2.3rem);
-      line-height: 1.05;
+    .section-title{
+      font-size:52px;
+      font-weight:700;
+      letter-spacing:-2px;
+
+      margin-bottom:40px;
     }
 
-    .project-copy p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 60ch;
-      font-size: 1rem;
+    .project{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+
+      gap:40px;
+
+      margin-bottom:42px;
+
+      background:rgba(255,255,255,0.28);
+
+      border:1px solid rgba(0,0,0,0.05);
+
+      padding:24px;
     }
 
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 16px;
+    .project-image{
+      background:linear-gradient(
+        135deg,
+        #7b1f29,
+        #111
+      );
+
+      min-height:320px;
+
+      display:flex;
+      align-items:flex-end;
+
+      padding:24px;
+
+      color:white;
+
+      font-size:14px;
+      font-weight:600;
     }
 
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 0.84rem;
-      font-weight: 600;
-      background: rgba(122,47,42,0.08);
-      color: #5d2b28;
+    .project-content{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
     }
 
-    .view-link {
-      margin-top: 18px;
-      font-weight: 700;
-      color: var(--accent);
+    .role{
+      font-size:13px;
+      font-weight:700;
+
+      color:var(--accent);
+
+      text-transform:uppercase;
+
+      letter-spacing:1px;
+
+      margin-bottom:14px;
     }
 
-    .about-wrap {
-      width: min(100%, var(--max));
-      margin: 0 auto;
-      padding: 8px 0 36px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
+    .project-content h3{
+      font-size:44px;
+      line-height:1;
+      letter-spacing:-2px;
+
+      margin-bottom:18px;
     }
 
-    .box {
-      border: 1px solid var(--line);
-      background: var(--card-strong);
-      box-shadow: var(--shadow);
-      border-radius: 24px;
-      padding: 24px;
+    .project-content p{
+      font-size:18px;
+      line-height:1.6;
+
+      color:var(--muted);
+
+      margin-bottom:22px;
     }
 
-    .box h3 {
-      margin: 0 0 10px;
-      font-size: 1.4rem;
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+
+      margin-bottom:22px;
     }
 
-    .box p {
-      margin: 0;
-      color: var(--muted);
+    .tag{
+      background:rgba(122,31,41,0.08);
+
+      color:var(--accent);
+
+      padding:10px 14px;
+
+      border-radius:999px;
+
+      font-size:14px;
+      font-weight:600;
     }
 
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 16px;
+    .view-link{
+      color:var(--accent);
+
+      font-size:17px;
+      font-weight:700;
     }
 
-    .footer {
-      width: min(100%, var(--max));
-      margin: 0 auto;
-      padding: 16px 0 54px;
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-      color: rgba(31,31,31,0.58);
-      border-top: 1px solid rgba(31,31,31,0.08);
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer{
+      border-top:1px solid rgba(0,0,0,0.08);
+
+      padding:60px 0;
+
+      margin-top:40px;
     }
 
-    .tiny {
-      font-family: "Fira Code", monospace;
-      font-size: 0.78rem;
+    .footer-inner{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
     }
 
-    @media (max-width: 900px) {
-      .nav-inner {
-        justify-content: center;
+    footer h3{
+      font-size:14px;
+      letter-spacing:1px;
+      margin-bottom:12px;
+      color:rgba(0,0,0,0.45);
+    }
+
+    footer p,
+    footer a{
+      font-size:18px;
+      color:black;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
+
+    @media(max-width:900px){
+
+      .hero{
+        padding-top:120px;
       }
 
-      .hero-shell {
-        width: 100%;
-        padding: 28px 18px 18px;
+      .hero-shell{
+        padding:20px;
       }
 
-      .hero-card {
-        padding: 24px;
-        min-height: auto;
+      .hero-card{
+        padding:28px;
       }
 
-      .hero h1 {
-        max-width: none;
+      .hero h1{
+        font-size:52px;
+        letter-spacing:-2px;
       }
 
-      .project,
-      .project:nth-child(even) {
-        grid-template-columns: 1fr;
+      .hero p{
+        font-size:20px;
       }
 
-      .project:nth-child(even) .project-visual,
-      .project:nth-child(even) .project-copy {
-        order: initial;
+      .project{
+        grid-template-columns:1fr;
       }
 
-      .about-wrap {
-        grid-template-columns: 1fr;
+      .project-content h3{
+        font-size:32px;
       }
 
-      .section-head {
-        flex-direction: column;
-        align-items: start;
+      .section-title{
+        font-size:38px;
+      }
+
+      .nav-inner{
+        justify-content:center;
+        gap:24px;
+      }
+
+      .inner-box{
+        top:20px;
+        left:20px;
+        right:20px;
+        bottom:20px;
+      }
+
+      .label-padding{
+        top:20px;
+        left:20px;
       }
     }
+
   </style>
 </head>
 
 <body>
-  <div class="page">
-    <header class="nav">
-      <div class="container">
-        <div class="nav-inner">
-          <a href="#about">About</a>
-          <a href="#work">Work</a>
-          <a href="#resume">Resume</a>
+
+  <!-- NAV -->
+
+  <nav>
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#resume">Resume</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+
+  <section id="about" class="hero">
+
+    <div class="hero-shell">
+
+      <div class="hero-card">
+
+        <h1>
+          Hello, I'm
+          <strong>Khushi Shah</strong>
+        </h1>
+
+        <p>
+          Building digital experiences with creativity and code.
+        </p>
+
+        <div class="logos">
+          <div class="logo-pill">IU School of Medicine</div>
+          <div class="logo-pill">Google</div>
+          <div class="logo-pill">Mozilla Firefox</div>
+          <div class="logo-pill">Johnson Controls</div>
+          <div class="logo-pill">Maisha Lifestyle</div>
         </div>
-      </div>
-    </header>
 
-    <main>
-      <section id="about" class="hero">
-        <section class="hero">
-  <div class="hero-shell">
-    <div class="hero-card">
-      <div class="hero-kicker">Portfolio / UX / Frontend</div>
+        <a href="#work" class="btn">
+          View My Work
+        </a>
 
-      <h1>
-        Hello, I'm
-        <strong>Khushi Shah</strong>
-      </h1>
-
-      <p>
-        I build digital experiences with creativity, product thinking, and clean code.
-      </p>
-
-      <div class="logo-row">
-        <div class="logo-pill">IU School of Medicine</div>
-        <div class="logo-pill">Google</div>
-        <div class="logo-pill">Mozilla Firefox</div>
-        <div class="logo-pill">Johnson Controls</div>
-        <div class="logo-pill">Maisha Lifestyle</div>
       </div>
 
-      <a class="btn primary" href="#work">View My Work</a>
+      <!-- HOVER OVERLAY -->
+
+      <div class="overlay">
+
+        <div class="outer-box"></div>
+
+        <div class="inner-box"></div>
+
+        <div class="label label-top">
+          margin: 54px
+        </div>
+
+        <div class="label label-left">
+          margin: 64px
+        </div>
+
+        <div class="label label-padding">
+          padding: 40px
+        </div>
+
+        <div class="label label-bottom">
+          width: auto
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="box-overlay">
-      <span class="label top">margin: 54px</span>
-      <span class="label left">margin: 64px</span>
-      <span class="label padding">padding: 40px</span>
-      <span class="label bottom">width: auto</span>
+  </section>
 
-      <div class="dashed-box"></div>
-      <div class="inner-box"></div>
+  <!-- WORK -->
 
-      <div class="measure horizontal">
-        <span>24px</span>
-      </div>
-      <div class="measure vertical">
-        <span>12px</span>
-      </div>
-    </div>
-  </div>
-</section>
-      </section>
+  <section id="work" class="work">
 
-      <section id="work" class="section">
-        <div class="section-head container">
-          <div>
-            <h2>Selected Work</h2>
+    <div class="container">
+
+      <h2 class="section-title">
+        Selected Work
+      </h2>
+
+      <!-- PROJECT -->
+
+      <div class="project">
+
+        <div class="project-image">
+          Case Study 01
+        </div>
+
+        <div class="project-content">
+
+          <div class="role">
+            IU SCHOOL OF MEDICINE
           </div>
+
+          <h3>
+            Designing better research and healthcare experiences
+          </h3>
+
           <p>
-            Use these cards as case studies. Each one can become its own project page later.
+            Created thoughtful interfaces and systems focused on usability,
+            accessibility, and improving digital workflows.
           </p>
-        </div>
 
-        <div class="projects">
-          <article class="project container">
-            <div class="project-visual">
-              <div class="project-badge">Case Study 01</div>
-            </div>
-            <div class="project-copy">
-              <div>
-                <div class="project-role">IU School of Medicine</div>
-                <h3>Designing a research-friendly digital experience</h3>
-                <p>
-                  Add the problem, your role, tools, and the outcome. This is where you make the
-                  project feel detailed and credible.
-                </p>
-                <div class="tags">
-                  <span class="tag">UX Research</span>
-                  <span class="tag">Information Architecture</span>
-                  <span class="tag">Accessibility</span>
-                </div>
-              </div>
-              <a class="view-link" href="#">View Project →</a>
-            </div>
-          </article>
-
-          <article class="project container">
-            <div class="project-visual">
-              <div class="project-badge">Case Study 02</div>
-            </div>
-            <div class="project-copy">
-              <div>
-                <div class="project-role">Google</div>
-                <h3>Improving product flows and simplifying user decisions</h3>
-                <p>
-                  Highlight the challenge, the design process, and what changed after your work.
-                </p>
-                <div class="tags">
-                  <span class="tag">Product Design</span>
-                  <span class="tag">Prototyping</span>
-                  <span class="tag">Design Systems</span>
-                </div>
-              </div>
-              <a class="view-link" href="#">View Project →</a>
-            </div>
-          </article>
-
-          <article class="project container">
-            <div class="project-visual">
-              <div class="project-badge">Case Study 03</div>
-            </div>
-            <div class="project-copy">
-              <div>
-                <div class="project-role">Mozilla Firefox</div>
-                <h3>Building a trustworthy and intuitive browser experience</h3>
-                <p>
-                  Talk about the audience, the UI decisions, and the impact of the redesign.
-                </p>
-                <div class="tags">
-                  <span class="tag">Interaction Design</span>
-                  <span class="tag">Usability</span>
-                  <span class="tag">Frontend</span>
-                </div>
-              </div>
-              <a class="view-link" href="#">View Project →</a>
-            </div>
-          </article>
-
-          <article class="project container">
-            <div class="project-visual">
-              <div class="project-badge">Case Study 04</div>
-            </div>
-            <div class="project-copy">
-              <div>
-                <div class="project-role">Johnson Controls / Maisha Lifestyle</div>
-                <h3>Creating polished experiences for brand and product needs</h3>
-                <p>
-                  Add a project that shows both visual design and practical problem-solving.
-                </p>
-                <div class="tags">
-                  <span class="tag">Brand Systems</span>
-                  <span class="tag">Responsive UI</span>
-                  <span class="tag">Visual Design</span>
-                </div>
-              </div>
-              <a class="view-link" href="#">View Project →</a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="resume" class="section">
-        <div class="about-wrap">
-          <div class="box">
-            <div class="tiny">ABOUT</div>
-            <h3>Write a short intro about yourself</h3>
-            <p>
-              I am Khushi Shah, a designer/developer creating thoughtful digital products and
-              portfolio case studies. I care about clarity, polish, and strong storytelling.
-            </p>
+          <div class="tags">
+            <div class="tag">UX Research</div>
+            <div class="tag">Healthcare</div>
+            <div class="tag">Accessibility</div>
           </div>
 
-          <div class="box">
-            <div class="tiny">SKILLS</div>
-            <h3>Tools and strengths</h3>
-            <div class="skills">
-              <span class="tag">Figma</span>
-              <span class="tag">HTML</span>
-              <span class="tag">CSS</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">React</span>
-              <span class="tag">GitHub Pages</span>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
+          <a href="#" class="view-link">
+            View Project →
+          </a>
 
-    <footer id="contact" class="footer">
-      <div>khushishahr.github.io</div>
-      <div>khushishah0311@gmail.com</div>
-      <div>© 2026 Khushi Shah</div>
-    </footer>
-  </div>
+        </div>
+
+      </div>
+
+      <!-- PROJECT -->
+
+      <div class="project">
+
+        <div class="project-image">
+          Case Study 02
+        </div>
+
+        <div class="project-content">
+
+          <div class="role">
+            GOOGLE
+          </div>
+
+          <h3>
+            Improving user flows and simplifying product experiences
+          </h3>
+
+          <p>
+            Worked on scalable digital experiences with strong visual systems
+            and clean interaction design.
+          </p>
+
+          <div class="tags">
+            <div class="tag">Design Systems</div>
+            <div class="tag">Interaction</div>
+            <div class="tag">Frontend</div>
+          </div>
+
+          <a href="#" class="view-link">
+            View Project →
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- PROJECT -->
+
+      <div class="project">
+
+        <div class="project-image">
+          Case Study 03
+        </div>
+
+        <div class="project-content">
+
+          <div class="role">
+            MOZILLA FIREFOX
+          </div>
+
+          <h3>
+            Building trustworthy and intuitive digital experiences
+          </h3>
+
+          <p>
+            Focused on usability, performance, and accessible interaction
+            patterns for modern interfaces.
+          </p>
+
+          <div class="tags">
+            <div class="tag">UI Design</div>
+            <div class="tag">Usability</div>
+            <div class="tag">Responsive</div>
+          </div>
+
+          <a href="#" class="view-link">
+            View Project →
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer id="resume">
+
+    <div class="container">
+
+      <div class="footer-inner">
+
+        <div>
+          <h3>CONTACT</h3>
+          <p>khushishah@email.com</p>
+        </div>
+
+        <div>
+          <h3>LINKS</h3>
+          <a href="https://github.com/khushishahr">
+            github.com/khushishahr
+          </a>
+        </div>
+
+        <div>
+          <h3>© 2026 KHUSHI SHAH</h3>
+          <p>Made with creativity & code.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
 </body>
 </html>

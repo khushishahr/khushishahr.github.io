@@ -71,6 +71,16 @@
   z-index: 1;
   background: transparent;
 }
+    .nav{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(244, 237, 229, 0.96);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
 
 @keyframes gradientBG{
   0%{
@@ -89,6 +99,12 @@
   --g2: #f3ebe2;
   --g3: #d9deeb;
   --g4: #ffecc9;
+}
+    .site-footer{
+  background: linear-gradient(-45deg, #fffaf5, #f3e2d4, #e8edf8, #f7f0e7);
+  background-size: 400% 400%;
+  animation: gradientBG 14s ease-in-out infinite;
+  position: relative;
 }
     a{
       text-decoration:none;

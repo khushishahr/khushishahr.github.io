@@ -533,27 +533,45 @@
       padding:0 4px;
     }
 /*Expereince Company Logo*/
-    .logos{
+.logos{
   display:flex;
-  flex-wrap:wrap;
   align-items:center;
-  gap:20px 28px;
+  gap: clamp(18px, 2vw, 32px);
+
+  flex-wrap: nowrap;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  width:100%;
+
+  padding-bottom:4px;
+
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+}
+
+.logos::-webkit-scrollbar{
+  display:none;
 }
 
 .logo-item{
   height:32px;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   flex-shrink:0;
 }
 
 .logo-item img{
-  max-height:100%;
+  height:100%;
   width:auto;
+
   object-fit:contain;
 
-  opacity:0.55;
+  opacity:0.6;
   filter:grayscale(100%);
 
   transition:
@@ -951,24 +969,26 @@
 
               <p>Building digital experiences with creativity and code.</p>
 
-              <div class="logo-item">
-    <img src="IU.H_WEBRev.png" alt="IU School of Medicine" />
+              <div class="logos">
+
+  <div class="logo-item">
+    <img src="./assets/google.png" alt="Google">
   </div>
 
   <div class="logo-item">
-    <img src="./assets/google.png" alt="Google" />
+    <img src="./assets/mozilla.png" alt="Mozilla Firefox">
   </div>
 
   <div class="logo-item">
-    <img src="./assets/mozilla-firefox.png" alt="Mozilla Firefox" />
+    <img src="IU.H_WEBRev.png" alt="IU School of Medicine">
   </div>
 
   <div class="logo-item">
-    <img src="./assets/johnson-controls.png" alt="Johnson Controls" />
+    <img src="./assets/johnson-controls.png" alt="Johnson Controls">
   </div>
 
   <div class="logo-item">
-    <img src="./assets/maisha-lifestyle.png" alt="Maisha Lifestyle" />
+    <img src="./assets/maisha.png" alt="Maisha Lifestyle">
   </div>
 
 </div>

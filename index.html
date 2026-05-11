@@ -532,7 +532,62 @@
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       padding:0 4px;
     }
+/*Expereince Company Logo*/
+    .logos{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:20px 28px;
+}
 
+.logo-item{
+  height:32px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+
+.logo-item img{
+  max-height:100%;
+  width:auto;
+  object-fit:contain;
+
+  opacity:0.55;
+  filter:grayscale(100%);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    filter 0.25s ease;
+}
+
+.logo-item img:hover{
+  opacity:1;
+  filter:grayscale(0%);
+  transform:translateY(-1px);
+}
+@media (max-width:768px){
+
+  .logos{
+    gap:18px 22px;
+  }
+
+  .logo-item{
+    height:26px;
+  }
+}
+
+@media (max-width:520px){
+
+  .logos{
+    gap:16px 18px;
+  }
+
+  .logo-item{
+    height:22px;
+  }
+}
     /* WORK */
     .work{
       padding:28px 0 100px;
@@ -896,13 +951,27 @@
 
               <p>Building digital experiences with creativity and code.</p>
 
-              <div class="logos" aria-label="Experience logos">
-                <div class="logo-item">IU School of Medicine</div>
-                <div class="logo-item">Google</div>
-                <div class="logo-item">Mozilla Firefox</div>
-                <div class="logo-item">Johnson Controls</div>
-                <div class="logo-item">Maisha Lifestyle</div>
-              </div>
+              <div class="logo-item">
+    <img src="./assets/iu-school-of-medicine.png" alt="IU School of Medicine" />
+  </div>
+
+  <div class="logo-item">
+    <img src="./assets/google.png" alt="Google" />
+  </div>
+
+  <div class="logo-item">
+    <img src="./assets/mozilla-firefox.png" alt="Mozilla Firefox" />
+  </div>
+
+  <div class="logo-item">
+    <img src="./assets/johnson-controls.png" alt="Johnson Controls" />
+  </div>
+
+  <div class="logo-item">
+    <img src="./assets/maisha-lifestyle.png" alt="Maisha Lifestyle" />
+  </div>
+
+</div>
 
               <a href="#work" class="btn">View My Work</a>
             </div>
